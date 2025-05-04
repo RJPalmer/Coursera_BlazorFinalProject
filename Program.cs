@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddSingleton<Coursera_BlazorFinalProject.Components.Services.EventService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,5 +25,5 @@ app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
-
+app.UseRouting();
 app.Run();
