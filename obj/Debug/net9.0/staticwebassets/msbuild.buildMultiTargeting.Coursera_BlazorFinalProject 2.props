@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Coursera_BlazorFinalProject.props" />
+</Project>
