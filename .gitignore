@@ -25,3 +25,15 @@ obj/Debug/net9.0/staticwebassets.build.json
 obj/Debug/net9.0/ref/Coursera_BlazorFinalProject.dll
 obj/Debug/net9.0/refint/Coursera_BlazorFinalProject.dll
 obj/Debug/net9.0/staticwebassets/msbuild.Coursera_BlazorFinalProject.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+obj/Debug/net9.0/Coursera_BlazorFinalProject.AssemblyInfo.cs
+obj/Debug/net9.0/Coursera_BlazorFinalProject.AssemblyInfoInputs.cache
+obj/Debug/net9.0/Coursera_BlazorFinalProject.dll
+obj/Debug/net9.0/Coursera_BlazorFinalProject.pdb
+obj/Debug/net9.0/Coursera_BlazorFinalProject.sourcelink.json
+obj/Debug/net9.0/staticwebassets.build.endpoints.json
+obj/Debug/net9.0/staticwebassets.build.json
+obj/Debug/net9.0/ref/Coursera_BlazorFinalProject.dll
+obj/Debug/net9.0/refint/Coursera_BlazorFinalProject.dll
+obj/Debug/net9.0/staticwebassets/msbuild.Coursera_BlazorFinalProject.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+obj/*
+bin/*
