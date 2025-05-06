@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Coursera_BlazorFinalProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80840bec3a98dd947b65937cf901ca28bf70ec36")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a1dc2d439b2eb006d165213bbf023cb161df770")]
 [assembly: System.Reflection.AssemblyProductAttribute("Coursera_BlazorFinalProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Coursera_BlazorFinalProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

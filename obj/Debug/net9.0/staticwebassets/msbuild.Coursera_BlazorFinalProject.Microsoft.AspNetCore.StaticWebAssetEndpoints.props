@@ -16,13 +16,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Coursera_BlazorFinalProject.a8m28pf1dc.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"a8m28pf1dc"},{"Name":"integrity","Value":"sha256-ChlmBQYod2dii10eNX1WFbsBXD3uLGVBXY0hIQ4PUgs="},{"Name":"label","Value":"_content/Coursera_BlazorFinalProject/Coursera_BlazorFinalProject.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5796"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ChlmBQYod2dii10eNX1WFbsBXD3uLGVBXY0hIQ4PUgs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 04 May 2025 18:28:45 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5796"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ChlmBQYod2dii10eNX1WFbsBXD3uLGVBXY0hIQ4PUgs=\u0022"},{"Name":"Last-Modified","Value":"Tue, 06 May 2025 14:25:20 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Coursera_BlazorFinalProject/Coursera_BlazorFinalProject.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Coursera_BlazorFinalProject.a8m28pf1dc.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ChlmBQYod2dii10eNX1WFbsBXD3uLGVBXY0hIQ4PUgs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5796"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ChlmBQYod2dii10eNX1WFbsBXD3uLGVBXY0hIQ4PUgs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 04 May 2025 18:28:45 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5796"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ChlmBQYod2dii10eNX1WFbsBXD3uLGVBXY0hIQ4PUgs=\u0022"},{"Name":"Last-Modified","Value":"Tue, 06 May 2025 14:25:20 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Coursera_BlazorFinalProject/favicon.ifv42okdf2.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))</AssetFile>
