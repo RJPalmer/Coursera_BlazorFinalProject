@@ -1,5 +1,3 @@
-using System;
-
 namespace Coursera_BlazorFinalProject.Components.Models;
 
 public class Event

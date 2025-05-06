@@ -1,4 +1,4 @@
-using Coursera_BlazorFinalProject.Components;
+using Coursera_BlazorFinalProject.Components.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +7,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddSingleton<Coursera_BlazorFinalProject.Components.Services.EventService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
