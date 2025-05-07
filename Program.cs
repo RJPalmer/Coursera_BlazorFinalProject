@@ -3,27 +3,36 @@ using Coursera_BlazorFinalProject.Components.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddRazorPages(); // Add Razor Pages support
+// builder.Services.AddServerSideBlazor(); // Add Blazor Server support
+builder.Services.AddSingleton<EventService>(); // Register the EventService as a singleton
+builder.Services.AddRouting(options => // Configure routing option
+{
+    options.LowercaseUrls = true; // Use lowercase URLs
+    options.LowercaseQueryStrings = true; // Use lowercase query strings
+    options.AppendTrailingSlash = true; // Append trailing slashes to URLs
+});
+builder.Services.AddServerSideBlazor(options => // Add Blazor Server support with options
+{
+    options.DetailedErrors = true; // Enable detailed error messages for debugging
+});
+builder.Services.AddHttpClient(); // Add HttpClient support for making HTTP requests
 
-builder.Services.AddSingleton<Coursera_BlazorFinalProject.Components.Services.EventService>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseStaticFiles(); // Serve static files from wwwroot
+app.UseRouting(); // Enable routing
 
-app.UseRouting();
-
-app.UseAntiforgery();
-
-app.MapStaticAssets();
+// Map Blazor-specific endpoints
+app.MapBlazorHub(); // Map the SignalR hub for Blazor Server
+app.MapFallbackToPage("/_Host"); // Map fallback to the _Host page
 
 app.Run();
