@@ -1,0 +1,61 @@
+
+
+@page "/register/{Id:int}"
+@inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
+@using Coursera_BlazorFinalProject
+@using System.ComponentModel.DataAnnotations
+@using Coursera_BlazorFinalProject.Components.Models
+
+<h3>Register for @selectedEvent?.Name</h3>
+
+@if (selectedEvent == null)
+{
+    <p>Event not found.</p>
+}
+else if (submitted)
+{
+    <p>Thank you for registering, @registration.Name!</p>
+}
+else
+{
+    <EditForm Model="@registration" OnValidSubmit="@HandleRegistration">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label>Your Name:</label>
+            <InputText @bind-Value="registration.Name" class="form-control" />
+        </div>
+        <div>
+            <label>Email:</label>
+            <InputText @bind-Value="registration.Email" class="form-control" />
+        </div>
+        <button type="submit">Submit</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Event? selectedEvent;
+    private Registration registration = new();
+    private bool submitted = false;
+
+    protected override void OnInitialized()
+    {
+        selectedEvent = EventService.GetEventById(Id);
+    }
+
+    private void HandleRegistration()
+    {
+        submitted = true;
+    }
+
+    public class Registration
+    {
+        [Required]
+        public string Name { get; set; } = string.Empty;
+
+        [Required, EmailAddress]
+        public string Email { get; set; } = string.Empty;
+    }
+}

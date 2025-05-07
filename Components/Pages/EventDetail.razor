@@ -1,0 +1,28 @@
+
+
+@page "/eventdetails/{Id:int}"
+@inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
+@using Coursera_BlazorFinalProject.Components.Models
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Event? selectedEvent;
+
+    protected override void OnInitialized()
+    {
+        selectedEvent = EventService.GetEventById(Id);
+    }
+}
+
+@if (selectedEvent == null)
+{
+    <p>Event not found.</p>
+}
+else
+{
+    <h3>@selectedEvent.Name</h3>
+    <p><strong>Date:</strong> @selectedEvent.Date.ToShortDateString()</p>
+    <p><strong>Location:</strong> @selectedEvent.Location</p>
+    <p>@selectedEvent.Description</p>
+    <a href="/register/@selectedEvent.Id">Register Now</a>
+}

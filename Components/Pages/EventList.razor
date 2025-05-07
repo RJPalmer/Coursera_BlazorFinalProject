@@ -1,0 +1,21 @@
+@page "/"
+@inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
+
+
+<h3>Upcoming Events</h3>
+
+@if (EventService.GetEvents() == null || !EventService.GetEvents().Any())
+{
+    <p>No events available.</p>
+}
+else
+{
+    @foreach (var ev in EventService.GetEvents())
+    {
+        <div class="event-card">
+            <h4>@ev.Name</h4>
+            <p>@ev.Date.ToShortDateString() - @ev.Location</p>
+            <a href="/eventdetails/@ev.Id">View Details</a>
+        </div>
+    }
+}

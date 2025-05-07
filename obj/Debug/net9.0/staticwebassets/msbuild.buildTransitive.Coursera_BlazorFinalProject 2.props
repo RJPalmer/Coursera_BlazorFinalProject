@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Coursera_BlazorFinalProject.props" />
+</Project>
