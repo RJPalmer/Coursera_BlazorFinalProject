@@ -58,3 +58,63 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table a {
+    color: #006bb7;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: center; /* Centers the NavMenu horizontally */
+    align-items: center; /* Centers the NavMenu vertically */
+    height: 100vh; /* Ensures the sidebar takes the full viewport height */
+    background-color: #f8f9fa; /* Optional: Add a background color for the sidebar */
+    padding: 1rem;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center links horizontally */
+    gap: 1rem; /* Add spacing between links */
+}
+
+.nav a {
+    text-decoration: none;
+    color: #006bb7;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}

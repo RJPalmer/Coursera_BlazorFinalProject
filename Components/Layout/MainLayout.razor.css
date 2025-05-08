@@ -9,6 +9,11 @@ main {
 }
 
 .sidebar {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height */
+    width: 250px; /* Fixed width for the sidebar */
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 }
 
@@ -52,6 +57,9 @@ main {
     }
 
     .sidebar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 250px;
         height: 100vh;
         position: sticky;

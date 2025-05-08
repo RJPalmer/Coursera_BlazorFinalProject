@@ -11,13 +11,30 @@
     }
     else
     {
-        @foreach (var ev in EventService.GetEvents())
-        {
-            <article class="event-card">
-                <h4>@ev.Name</h4>
-                <p>@ev.Date.ToShortDateString() - @ev.Location</p>
-                <a href="/eventdetails/@ev.Id">View Details</a>
-            </article>
-        }
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ev in EventService.GetEvents())
+                {
+                    <tr>
+                        <td>@ev.Name</td>
+                        <td>@ev.Date.ToShortDateString()</td>
+                        <td>@ev.Location</td>
+                        <td>@ev.Description</td>
+                        <td>
+                            <a href="/eventdetails/@ev.Id" class="btn btn-link">View Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
 </section>
