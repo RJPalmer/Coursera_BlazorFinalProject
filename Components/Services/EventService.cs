@@ -11,9 +11,31 @@ namespace Coursera_BlazorFinalProject.Components.Services
             new Event { Id = 3, Name = "Startup Pitch Night", Date = new DateTime(2025, 8, 25), Location = "San Francisco", Description = "Pitch your ideas to investors." }
         };
 
+        private readonly Dictionary<int, List<Registration>> _registrations = new();
+
         public List<Event> GetEvents() => _events;
 
         public Event? GetEventById(int id) =>
             _events.FirstOrDefault(e => e.Id == id);
+
+        public void RegisterUser(int eventId, Registration registration)
+        {
+            if (!_registrations.ContainsKey(eventId))
+            {
+                _registrations[eventId] = new List<Registration>();
+            }
+            _registrations[eventId].Add(registration);
+        }
+
+        public List<Registration> GetRegistrationsForEvent(int eventId)
+        {
+            return _registrations.ContainsKey(eventId) ? _registrations[eventId] : new List<Registration>();
+        }
+    }
+
+    public class Registration
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
     }
 }

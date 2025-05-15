@@ -1,40 +1,78 @@
 @page "/"
+@using global::Coursera_BlazorFinalProject.Components.Models
 @using global::Coursera_BlazorFinalProject.Components.Services
 @inject EventService EventService
 
 <section class="content">
     <h3>Upcoming Events</h3>
 
-    @if (EventService.GetEvents() == null || !EventService.GetEvents().Any())
+    @if (pagedEvents == null || !pagedEvents.Any())
     {
         <p>No events available.</p>
     }
     else
     {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var ev in EventService.GetEvents())
-                {
+        <div class="table-container">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>@ev.Name</td>
-                        <td>@ev.Date.ToShortDateString()</td>
-                        <td>@ev.Location</td>
-                        <td>@ev.Description</td>
-                        <td>
-                            <a href="/eventdetails/@ev.Id" class="btn btn-link">View Details</a>
-                        </td>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                        <th>Actions</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var ev in pagedEvents)
+                    {
+                        <tr>
+                            <td>@ev.Name</td>
+                            <td>@ev.Date.ToShortDateString()</td>
+                            <td>@ev.Location</td>
+                            <td>@ev.Description</td>
+                            <td>
+                                <a href="/eventdetails/@ev.Id" class="btn btn-link">View Details</a>
+                                <a href="/registered-users/@ev.Id" class="btn btn-secondary-custom">View Registered Users</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button class="btn btn-secondary" @onclick="PreviousPage" disabled="@IsFirstPage">Previous</button>
+            <span class="pagination-info" style="margin: 0 10px;">Page @CurrentPage of @TotalPages</span>
+            <button class="btn btn-secondary" @onclick="NextPage" disabled="@IsLastPage">Next</button>
+        </div>
     }
 </section>
+
+@code {
+    private int PageSize = 10;
+    private int CurrentPage = 1;
+    private int TotalPages => (int)Math.Ceiling((double)EventService.GetEvents().Count() / PageSize);
+    private IEnumerable<Event> pagedEvents => EventService.GetEvents()
+        .Skip((CurrentPage - 1) * PageSize)
+        .Take(PageSize);
+
+    private bool IsFirstPage => CurrentPage == 1;
+    private bool IsLastPage => CurrentPage == TotalPages;
+
+    private void NextPage()
+    {
+        if (!IsLastPage)
+        {
+            CurrentPage++;
+        }
+    }
+
+    private void PreviousPage()
+    {
+        if (!IsFirstPage)
+        {
+            CurrentPage--;
+        }
+    }
+}

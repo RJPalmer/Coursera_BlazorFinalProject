@@ -3,7 +3,7 @@ html, body {
 }
 
 a, .btn-link {
-    color: #006bb7;
+    color: #ffffff;
 }
 
 .btn-primary {
@@ -12,8 +12,20 @@ a, .btn-link {
     border-color: #1861ac;
 }
 
+.btn-secondary {
+    color: white; /* Set text color to white */
+    background-color: #6c757d; /* Default secondary button background */
+    border-color: #6c757d; /* Default secondary button border */
+}
+
+.btn-secondary-custom {
+    color: white; /* Set text color to white */
+    background-color: #6c757d; /* Default secondary button background */
+    border-color: #6c757d; /* Default secondary button border */
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ffffff;
 }
 
 .content {
@@ -105,7 +117,13 @@ h1:focus {
 .nav {
     display: flex;
     flex-direction: column; /* Stack links vertically */
-    align-items: center; /* Center links horizontally */
+    align-items: center; /* Cen
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/eventlist">
+                <span class="bi bi-calendar-event-fill-nav-menu" aria-hidden="true">Event List</span>
+            </NavLink>
+        </div>
+ter links horizontally */
     gap: 1rem; /* Add spacing between links */
 }
 

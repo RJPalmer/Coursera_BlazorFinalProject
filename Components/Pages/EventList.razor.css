@@ -1,0 +1,5 @@
+.pagination {
+    display: flex;
+    justify-content: center; /* Centers the pagination horizontally */
+    margin-top: 1rem; /* Adds spacing above the pagination */
+}
