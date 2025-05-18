@@ -1,5 +1,6 @@
 @page "/register/{Id:int}"
 @inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
+@inject Coursera_BlazorFinalProject.Components.Shared.Services.UserSessionState SessionState
 @using Microsoft.AspNetCore.Components.Forms
 @using Coursera_BlazorFinalProject
 @using System.ComponentModel.DataAnnotations
@@ -51,6 +52,8 @@ else
     private async Task HandleRegistration()
     {
         await EventService.RegisterUserAsync(Id, registration);
+        SessionState.UserName = registration.Name;
+        SessionState.LastRegisteredEventId = Id;
         submitted = true;
     }
 }

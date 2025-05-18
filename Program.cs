@@ -1,5 +1,6 @@
 using Coursera_BlazorFinalProject.Components.Services;
 using Blazored.LocalStorage;
+using Coursera_BlazorFinalProject.Components.Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddRazorPages(); // Add Razor Pages support
 builder.Services.AddBlazoredLocalStorage(); // Add Blazored.LocalStorage for local storage support
 // builder.Services.AddServerSideBlazor(); // Add Blazor Server support
 builder.Services.AddScoped<EventService>(); // Register the EventService as a singleton
+builder.Services.AddScoped<UserSessionState>(); // Register the UserSessionState as a singleton
 builder.Services.AddRouting(options => // Configure routing option
 {
     options.LowercaseUrls = true; // Use lowercase URLs
