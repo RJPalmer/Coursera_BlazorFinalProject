@@ -1,14 +1,15 @@
 @page "/register/{Id:int}"
-@inject EventService EventService
+@inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
 @using Microsoft.AspNetCore.Components.Forms
 @using Coursera_BlazorFinalProject
 @using System.ComponentModel.DataAnnotations
 @using global::Coursera_BlazorFinalProject.Components.Models
 @using global::Coursera_BlazorFinalProject.Components.Services
+@using Coursera_BlazorFinalProject.Components
 
 <h3>Register for @selectedEvent?.Name</h3>
 
-@if (selectedEvent == null)
+@if (selectedEvent is null)
 {
     <p>Event not found.</p>
 }
@@ -47,18 +48,9 @@ else
         selectedEvent = EventService.GetEventById(Id);
     }
 
-    private void HandleRegistration()
+    private async Task HandleRegistration()
     {
+        await EventService.RegisterUserAsync(Id, registration);
         submitted = true;
-    }
-
-    public class Registration
-    {
-        [Required(ErrorMessage = "Name is required.")]
-        public string Name { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Email is required.")]
-        [EmailAddress(ErrorMessage = "Invalid email address.")]
-        public string Email { get; set; } = string.Empty;
     }
 }

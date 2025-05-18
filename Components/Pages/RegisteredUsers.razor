@@ -40,12 +40,12 @@ else
     private Event? eventDetails;
     private List<Registration> registrations = new();
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         eventDetails = EventService.GetEventById(EventId);
         if (eventDetails != null)
         {
-            registrations = EventService.GetRegistrationsForEvent(EventId);
+            registrations = await EventService.GetRegistrationsForEventAsync(EventId);
         }
     }
 }

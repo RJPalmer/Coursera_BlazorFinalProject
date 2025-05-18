@@ -4,6 +4,8 @@ namespace Coursera_BlazorFinalProject.Components.Services
 {
     public class EventService
     {
+        private static readonly Dictionary<int, List<Registration>> registrations = new();
+
         private readonly List<Event> _events = new List<Event>
         {
             new Event { Id = 1, Name = "Tech Conference 2025", Date = new DateTime(2025, 6, 15), Location = "New York", Description = "Latest trends in tech." },
@@ -11,25 +13,27 @@ namespace Coursera_BlazorFinalProject.Components.Services
             new Event { Id = 3, Name = "Startup Pitch Night", Date = new DateTime(2025, 8, 25), Location = "San Francisco", Description = "Pitch your ideas to investors." }
         };
 
-        private readonly Dictionary<int, List<Registration>> _registrations = new();
-
         public List<Event> GetEvents() => _events;
 
         public Event? GetEventById(int id) =>
             _events.FirstOrDefault(e => e.Id == id);
 
-        public void RegisterUser(int eventId, Registration registration)
+        public Task RegisterUserAsync(int eventId, Registration registration)
         {
-            if (!_registrations.ContainsKey(eventId))
-            {
-                _registrations[eventId] = new List<Registration>();
-            }
-            _registrations[eventId].Add(registration);
+            if (!registrations.ContainsKey(eventId))
+                registrations[eventId] = new List<Registration>();
+            registrations[eventId].Add(registration);
+            return Task.CompletedTask;
         }
 
-        public List<Registration> GetRegistrationsForEvent(int eventId)
+        public Task<List<Registration>> GetRegistrationsForEventAsync(int eventId)
         {
-            return _registrations.ContainsKey(eventId) ? _registrations[eventId] : new List<Registration>();
+            return Task.FromResult(registrations.ContainsKey(eventId) ? registrations[eventId] : new List<Registration>());
+        }
+
+        public Task<int> GetRegistrationCountAsync(int eventId)
+        {
+            return Task.FromResult(registrations.ContainsKey(eventId) ? registrations[eventId].Count : 0);
         }
     }
 

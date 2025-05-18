@@ -20,7 +20,7 @@ a, .btn-link {
 
 .btn-secondary-custom {
     color: white; /* Set text color to white */
-    background-color: #6c757d; /* Default secondary button background */
+    /* background-color: #6c757d; Default secondary button background */
     border-color: #6c757d; /* Default secondary button border */
 }
 
