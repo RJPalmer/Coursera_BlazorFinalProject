@@ -36,7 +36,7 @@
 # For a complete CI/CD sample to get started with GitHub Action workflows for Desktop Applications,
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 
-name: .NET Core Desktop
+name: .NET Blazor Server CI
 
 on:
   push:
@@ -45,6 +45,30 @@ on:
     branches: [ "main" ]
 
 jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    env:
+      Solution_Name: Coursera_BlazorFinalProject.sln
+      Project_Path: Coursera_BlazorFinalProject/Coursera_BlazorFinalProject.csproj
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.Solution_Name }}
+
+    - name: Build
+      run: dotnet build ${{ env.Solution_Name }} --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test ${{ env.Solution_Name }} --no-build --verbosity normal
 
   build:
 
