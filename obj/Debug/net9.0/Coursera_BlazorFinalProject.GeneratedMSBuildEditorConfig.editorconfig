@@ -28,12 +28,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FdmVudERldGFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/robertpalmer/Desktop/Coding/Blazor/FinalProject/Coursera_BlazorFinalProject/Components/Pages/EventList.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FdmVudExpc3QucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/robertpalmer/Desktop/Coding/Blazor/FinalProject/Coursera_BlazorFinalProject/Components/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9SZWdpc3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/robertpalmer/Desktop/Coding/Blazor/FinalProject/Coursera_BlazorFinalProject/Components/Pages/RegisteredUsers.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9SZWdpc3RlcmVkVXNlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/robertpalmer/Desktop/Coding/Blazor/FinalProject/Coursera_BlazorFinalProject/Components/Routes.razor]
@@ -55,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope = b-ohxx8p77q3
 [/Users/robertpalmer/Desktop/Coding/Blazor/FinalProject/Coursera_BlazorFinalProject/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-cuxfij6y9h
+
+[/Users/robertpalmer/Desktop/Coding/Blazor/FinalProject/Coursera_BlazorFinalProject/Components/Pages/EventList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FdmVudExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-nr0sucq4jq
 
 [/Users/robertpalmer/Desktop/Coding/Blazor/FinalProject/Coursera_BlazorFinalProject/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s

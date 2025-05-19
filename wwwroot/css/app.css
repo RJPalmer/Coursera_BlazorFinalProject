@@ -3,7 +3,7 @@ html, body {
 }
 
 a, .btn-link {
-    color: #006bb7;
+    color: #ffffff;
 }
 
 .btn-primary {
@@ -12,8 +12,20 @@ a, .btn-link {
     border-color: #1861ac;
 }
 
+.btn-secondary {
+    color: white; /* Set text color to white */
+    background-color: #6c757d; /* Default secondary button background */
+    border-color: #6c757d; /* Default secondary button border */
+}
+
+.btn-secondary-custom {
+    color: white; /* Set text color to white */
+    /* background-color: #6c757d; Default secondary button background */
+    border-color: #6c757d; /* Default secondary button border */
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ffffff;
 }
 
 .content {
@@ -57,4 +69,70 @@ h1:focus {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table a {
+    color: #006bb7;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: center; /* Centers the NavMenu horizontally */
+    align-items: center; /* Centers the NavMenu vertically */
+    height: 100vh; /* Ensures the sidebar takes the full viewport height */
+    background-color: #f8f9fa; /* Optional: Add a background color for the sidebar */
+    padding: 1rem;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Cen
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/eventlist">
+                <span class="bi bi-calendar-event-fill-nav-menu" aria-hidden="true">Event List</span>
+            </NavLink>
+        </div>
+ter links horizontally */
+    gap: 1rem; /* Add spacing between links */
+}
+
+.nav a {
+    text-decoration: none;
+    color: #006bb7;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
 }

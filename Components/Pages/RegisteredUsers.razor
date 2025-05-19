@@ -1,0 +1,51 @@
+@page "/registered-users/{EventId:int}"
+@inject EventService EventService
+@using global::Coursera_BlazorFinalProject.Components.Models
+@using global::Coursera_BlazorFinalProject.Components.Services
+
+
+<h3>Registered Users for @eventDetails?.Name</h3>
+
+@if (eventDetails is null)
+{
+    <p>Event not found.</p>
+}
+else if (!registrations.Any())
+{
+    <p>No users have registered for this event yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registration in registrations)
+            {
+                <tr>
+                    <td>@registration.Name</td>
+                    <td>@registration.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter] public int EventId { get; set; }
+    private Event? eventDetails;
+    private List<Registration> registrations = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        eventDetails = EventService.GetEventById(EventId);
+        if (eventDetails != null)
+        {
+            registrations = await EventService.GetRegistrationsForEventAsync(EventId);
+        }
+    }
+}

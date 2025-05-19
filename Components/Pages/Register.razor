@@ -1,14 +1,16 @@
-
-
 @page "/register/{Id:int}"
 @inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
+@inject Coursera_BlazorFinalProject.Components.Shared.Services.UserSessionState SessionState
+@using Microsoft.AspNetCore.Components.Forms
 @using Coursera_BlazorFinalProject
 @using System.ComponentModel.DataAnnotations
-@using Coursera_BlazorFinalProject.Components.Models
+@using global::Coursera_BlazorFinalProject.Components.Models
+@using global::Coursera_BlazorFinalProject.Components.Services
+@using Coursera_BlazorFinalProject.Components
 
 <h3>Register for @selectedEvent?.Name</h3>
 
-@if (selectedEvent == null)
+@if (selectedEvent is null)
 {
     <p>Event not found.</p>
 }
@@ -25,12 +27,14 @@ else
         <div>
             <label>Your Name:</label>
             <InputText @bind-Value="registration.Name" class="form-control" />
+            <ValidationMessage For="@(() => registration.Name)" />
         </div>
         <div>
             <label>Email:</label>
             <InputText @bind-Value="registration.Email" class="form-control" />
+            <ValidationMessage For="@(() => registration.Email)" />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </EditForm>
 }
 
@@ -45,17 +49,11 @@ else
         selectedEvent = EventService.GetEventById(Id);
     }
 
-    private void HandleRegistration()
+    private async Task HandleRegistration()
     {
+        await EventService.RegisterUserAsync(Id, registration);
+        SessionState.UserName = registration.Name;
+        SessionState.LastRegisteredEventId = Id;
         submitted = true;
-    }
-
-    public class Registration
-    {
-        [Required]
-        public string Name { get; set; } = string.Empty;
-
-        [Required, EmailAddress]
-        public string Email { get; set; } = string.Empty;
     }
 }

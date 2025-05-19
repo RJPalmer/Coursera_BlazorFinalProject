@@ -1,21 +1,78 @@
 @page "/"
-@inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
+@using global::Coursera_BlazorFinalProject.Components.Models
+@using global::Coursera_BlazorFinalProject.Components.Services
+@inject EventService EventService
 
+<section class="content">
+    <h3>Upcoming Events</h3>
 
-<h3>Upcoming Events</h3>
-
-@if (EventService.GetEvents() == null || !EventService.GetEvents().Any())
-{
-    <p>No events available.</p>
-}
-else
-{
-    @foreach (var ev in EventService.GetEvents())
+    @if (EventService.GetEvents() == null || !EventService.GetEvents().Any())
     {
-        <div class="event-card">
-            <h4>@ev.Name</h4>
-            <p>@ev.Date.ToShortDateString() - @ev.Location</p>
-            <a href="/eventdetails/@ev.Id">View Details</a>
-        </div>
+        <p>No events available.</p>
+    }
+    else
+    {
+        @if (!dataLoaded)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ev in EventService.GetEvents())
+                        {
+                            <tr>
+                                <td>@ev.Name</td>
+                                <td>@ev.Date.ToShortDateString()</td>
+                                <td>@ev.Location</td>
+                                <td>@ev.Description</td>
+                                <td>
+                                    <a href="/eventdetails/@ev.Id" class="btn btn-link">View Details</a>
+                                    <a href="/registered-users/@ev.Id" class="btn btn-secondary">
+                                        @if (registrationCounts.TryGetValue(ev.Id, out var count) && count > 0)
+                                        {
+                                            <span>View Registered Users (@count)</span>
+                                        }
+                                        else
+                                        {
+                                            <span>View Registered Users</span>
+                                        }
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+</section>
+
+@code {
+    private Dictionary<int, int> registrationCounts = new();
+    private bool dataLoaded = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            foreach (var ev in EventService.GetEvents())
+            {
+                registrationCounts[ev.Id] = await EventService.GetRegistrationCountAsync(ev.Id);
+            }
+            dataLoaded = true;
+            StateHasChanged();
+        }
     }
 }
