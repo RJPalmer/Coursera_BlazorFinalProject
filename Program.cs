@@ -1,5 +1,5 @@
-using Blazored.LocalStorage;
 using Coursera_BlazorFinalProject.Components.Shared.Services;
+using Blazored.LocalStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
