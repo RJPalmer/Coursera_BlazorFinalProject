@@ -1,7 +1,8 @@
 @page "/registered-users/{EventId:int}"
+@using global::Coursera_BlazorFinalProject.Components.Shared.Models
+@using global::Coursera_BlazorFinalProject.Components.Shared.Services
+@inject UserSessionState SessionState
 @inject EventService EventService
-@using global::Coursera_BlazorFinalProject.Components.Models
-@using global::Coursera_BlazorFinalProject.Components.Services
 
 
 <h3>Registered Users for @eventDetails?.Name</h3>

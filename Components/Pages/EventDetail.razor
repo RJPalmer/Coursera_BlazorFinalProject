@@ -1,8 +1,9 @@
 
-
+@using global::Coursera_BlazorFinalProject.Components.Shared.Models
+@using global::Coursera_BlazorFinalProject.Components.Shared.Services
 @page "/eventdetails/{Id:int}"
-@inject Coursera_BlazorFinalProject.Components.Services.EventService EventService
-@using Coursera_BlazorFinalProject.Components.Models
+@inject EventService EventService
+
 
 @code {
     [Parameter] public int Id { get; set; }
@@ -25,4 +26,4 @@ else
     <p><strong>Location:</strong> @selectedEvent.Location</p>
     <p>@selectedEvent.Description</p>
     <a href="/register/@selectedEvent.Id">Register Now</a>
-}
+}    using Coursera_BlazorFinalProject.Components.Shared.Services;

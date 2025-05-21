@@ -1,6 +1,6 @@
-using Coursera_BlazorFinalProject.Components.Models;
+using Coursera_BlazorFinalProject.Components.Shared.Models;
 
-namespace Coursera_BlazorFinalProject.Components.Services
+namespace Coursera_BlazorFinalProject.Components.Shared.Services
 {
     public class EventService
     {
