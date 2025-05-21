@@ -1,9 +1,28 @@
 @page "/"
-@using global::Coursera_BlazorFinalProject.Components.Models
-@using global::Coursera_BlazorFinalProject.Components.Services
+@using global::Coursera_BlazorFinalProject.Components.Shared.Models
+@using global::Coursera_BlazorFinalProject.Components.Shared.Services
 @inject EventService EventService
-
+@inject UserSessionState SessionState
 <section class="content">
+    @if (!SessionState.HasVisited)
+    {
+        <div class="alert alert-info">
+            Welcome to the Event Portal!
+        </div>
+        @code {
+            protected override void OnInitialized()
+            {
+                SessionState.HasVisited = true;
+            }
+        }
+    }
+    else
+    {
+        <div class="alert alert-success">
+            Welcome back@((SessionState.UserName is not null ? $", {SessionState.UserName}" : ""))!
+        </div>
+    }
+
     <h3>Upcoming Events</h3>
 
     @if (EventService.GetEvents() == null || !EventService.GetEvents().Any())

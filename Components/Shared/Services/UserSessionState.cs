@@ -4,5 +4,5 @@ public class UserSessionState
 {
     public string? UserName { get; set; }
     public int? LastRegisteredEventId { get; set; }
-    // Add more properties as needed for your session
+    public bool HasVisited { get; set; } = false; // Add this property
 }

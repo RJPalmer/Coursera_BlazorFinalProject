@@ -1,4 +1,4 @@
-namespace Coursera_BlazorFinalProject.Components.Models;
+namespace Coursera_BlazorFinalProject.Components.Shared.Models;
 
 public class Event
 {
